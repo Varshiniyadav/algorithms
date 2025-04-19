@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}AlgoVerse - Interactive Algorithm Learning{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="stars-background"></div>
+    
+    <div class="welcome-section">
+        <h1 class="animated-title">Welcome to <span class="highlight">AlgoVerse</span></h1>
+        <p class="subtitle">Explore algorithms through interactive visualizations</p>
+        
+        <div class="cta-buttons">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('dashboard') }}" class="btn primary-btn">Go to Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn primary-btn">Login</a>
+                <a href="{{ url_for('signup') }}" class="btn secondary-btn">Sign Up</a>
+                <a href="{{ url_for('dashboard') }}" class="btn tertiary-btn">Start Exploring</a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="features-section">
+        <div class="feature-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3>Dijkstra's Algorithm</h3>
+            <p>Explore the shortest path algorithm through an interactive pizza delivery simulation.</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-sort-amount-down"></i>
+            <h3>Merge Sort</h3>
+            <p>Visualize how merge sort efficiently organizes pizza orders by delivery time.</p>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-hands-on"></i>
+            <h3>Interactive Learning</h3>
+            <p>Learn by doing with our interactive simulations and challenges.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Create stars for background animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const starsContainer = document.querySelector('.stars-background');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            starsContainer.appendChild(star);
+        }
+    });
+</script>
+{% endblock %}

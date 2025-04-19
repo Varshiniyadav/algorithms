@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Merge Sort - AlgoVerse{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/algorithms.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="algorithm-page">
+    <div class="algorithm-header">
+        <h1>Merge Sort: Pizza Orders Sorting</h1>
+        <p>Learn how Merge Sort efficiently organizes pizza orders by delivery time or size.</p>
+    </div>
+    
+    <div class="algorithm-content">
+        <div class="explanation-section">
+            <h2>How It Works</h2>
+            <p>Merge Sort is a divide-and-conquer algorithm that follows these steps:</p>
+            <ol>
+                <li>Divide the array into two halves</li>
+                <li>Recursively sort each half</li>
+                <li>Merge the sorted halves back together</li>
+            </ol>
+            
+            <div class="complexity">
+                <h3>Time Complexity</h3>
+                <p>Best Case: O(n log n)</p>
+                <p>Average Case: O(n log n)</p>
+                <p>Worst Case: O(n log n)</p>
+            </div>
+            
+            <div class="real-world-use">
+                <h3>Real-World Applications</h3>
+                <p>Merge Sort is used in:</p>
+                <ul>
+                    <li>External sorting of large data files</li>
+                    <li>Sorting linked lists</li>
+                    <li>Inversion count problems</li>
+                    <li>E-commerce order processing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="simulation-section">
+            <div class="controls">
+                <div class="control-group">
+                    <button id="start-btn" class="btn primary-btn">Start</button>
+                    <button id="pause-btn" class="btn secondary-btn" disabled>Pause</button>
+                    <button id="reset-btn" class="btn tertiary-btn">Reset</button>
+                </div>
+                
+                <div class="control-group">
+                    <label for="speed-slider">Speed:</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="5">
+                </div>
+                
+                <div class="control-group">
+                    <label for="array-size">Array Size:</label>
+                    <input type="range" id="array-size" min="4" max="20" value="8">
+                    <span id="array-size-value">8</span>
+                </div>
+                
+                <div class="control-group">
+                    <button id="generate-array-btn" class="btn secondary-btn">Generate New Array</button>
+                </div>
+            </div>
+            
+            <div class="array-container">
+                <div id="array-visual" class="array-visual"></div>
+            </div>
+            
+            <div class="status-panel">
+                <div id="status-message" class="status-message">Ready to sort pizza orders!</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="metric-label">Comparisons:</span>
+                        <span id="comparisons-value" class="metric-value">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Array Accesses:</span>
+                        <span id="array-accesses" class="metric-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="challenge-section">
+        <h2>Challenge Mode</h2>
+        <p>Test your understanding by predicting how the algorithm will sort different arrays.</p>
+        
+        <div class="challenge-controls">
+            <button id="custom-array-btn" class="btn secondary-btn">Enter Custom Array</button>
+            <div id="custom-array-input" class="custom-array-input" style="display: none;">
+                <input type="text" id="array-input" placeholder="Enter numbers separated by commas (e.g., 32, 25, 13, 42)">
+                <button id="apply-custom-array" class="btn primary-btn">Apply</button>
+            </div>
+            <button id="save-progress-btn" class="btn primary-btn">Save Progress</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/mergesort.js') }}"></script>
+{% endblock %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/mergesort.js') }}"></script>
+{% endblock %}

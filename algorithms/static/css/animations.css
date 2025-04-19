@@ -1,0 +1,205 @@
+/* Animations for AlgoVerse */
+
+/* Star Animation */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Title Animation */
+.animated-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Hover Animation */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Form Input Animation */
+.form-group input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Flash Message Animation */
+.flash-message {
+    animation: slideInDown 0.5s ease-out, fadeOut 0.5s ease-out 5s forwards;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Algorithm Card Animation */
+.algorithm-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Grid Cell Animation */
+.cell {
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* Path Animation */
+@keyframes pathAnimation {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.path {
+    animation: pathAnimation 0.5s ease-out;
+}
+
+/* Array Bar Animation */
+.array-bar {
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes compareAnimation {
+    0% {
+        background-color: var(--secondary-color);
+    }
+    50% {
+        background-color: var(--warning-color);
+    }
+    100% {
+        background-color: var(--secondary-color);
+    }
+}
+
+.comparing {
+    animation: compareAnimation 0.5s ease;
+}
+
+@keyframes swapAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.swapping {
+    animation: swapAnimation 0.5s ease;
+}
+
+/* Status Message Animation */
+.status-message {
+    transition: opacity 0.3s ease;
+}
+
+.status-update {
+    animation: statusUpdate 0.5s ease;
+}
+
+@keyframes statusUpdate {
+    0% {
+        opacity: 0.5;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Progress Bar Animation */
+.progress-fill {
+    transition: width 1s ease-in-out;
+}

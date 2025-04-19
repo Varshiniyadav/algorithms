@@ -1,0 +1,306 @@
+/* Styles for Algorithm Pages */
+
+.algorithm-page {
+    padding: 20px 0;
+}
+
+.algorithm-header {
+    margin-bottom: 30px;
+}
+
+.algorithm-header h1 {
+    margin-bottom: 10px;
+}
+
+.algorithm-header p {
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+.algorithm-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.explanation-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.explanation-section h2 {
+    margin-bottom: 15px;
+}
+
+.explanation-section p, .explanation-section ul, .explanation-section ol {
+    margin-bottom: 20px;
+}
+
+.explanation-section ul, .explanation-section ol {
+    padding-left: 20px;
+}
+
+.explanation-section li {
+    margin-bottom: 8px;
+}
+
+.real-world-use, .complexity {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.real-world-use h3, .complexity h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.simulation-section {
+    flex: 2;
+    min-width: 500px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Dijkstra Grid Styles */
+.grid-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+.cell {
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cell:hover {
+    background-color: #3a3a3a;
+}
+
+.cell.start {
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+.cell.start::after {
+    content: '🍕';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.cell.end {
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.cell.end::after {
+    content: '🏠';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.cell.wall {
+    background-color: #111;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.cell.visited {
+    background-color: rgba(74, 107, 255, 0.3);
+    animation: visitedAnimation 0.5s ease-out;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.3);
+        background-color: rgba(74, 107, 255, 0.7);
+    }
+    50% {
+        background-color: rgba(74, 107, 255, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgba(74, 107, 255, 0.3);
+    }
+}
+
+.cell.path {
+    background-color: var(--tertiary-color);
+    animation: pathAnimation 0.5s ease-out;
+}
+
+/* Merge Sort Array Styles */
+.array-container {
+    height: 400px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.array-visual {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    gap: 4px;
+}
+
+.array-bar {
+    background-color: var(--primary-color);
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.array-bar::after {
+    content: attr(data-value);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.array-bar.comparing {
+    background-color: var(--secondary-color);
+}
+
+.array-bar.sorted {
+    background-color: var(--tertiary-color);
+}
+
+/* Status Panel */
+.status-panel {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.status-message {
+    font-size: 18px;
+    margin-bottom: 15px;
+    min-height: 27px;
+}
+
+.metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Challenge Section */
+.challenge-section {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.challenge-section h2 {
+    margin-bottom: 10px;
+}
+
+.challenge-section p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.challenge-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.custom-array-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.custom-array-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .algorithm-content {
+        flex-direction: column;
+    }
+    
+    .simulation-section {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-group {
+        flex-wrap: wrap;
+    }
+}
