@@ -4,55 +4,24 @@
 
 {% block content %}
 <div class="dashboard-container">
-    <h1>Welcome to Your Dashboard, {{ current_user.username }}</h1>
+    <h1>Welcome to Your Dashboard, {{ current_user.username if current_user and current_user.username else 'Guest' }}</h1>
     <p class="dashboard-intro">Explore algorithms through interactive visualizations and challenges.</p>
     
-    <div class="algorithm-cards">
-        <div class="algorithm-card">
-            <div class="algorithm-icon">
-                <i class="fas fa-route"></i>
-            </div>
-            <div class="algorithm-info">
-                <h3>Dijkstra's Algorithm</h3>
-                <p>Find the shortest path in a pizza delivery simulation.</p>
-                <div class="algorithm-actions">
-                    <a href="{{ url_for('dijkstra') }}" class="btn primary-btn">Start Learning</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="algorithm-card">
-            <div class="algorithm-icon">
-                <i class="fas fa-sort-amount-down"></i>
-            </div>
-            <div class="algorithm-info">
+    <div class="algorithms-list">
+        <h2>Available Algorithms</h2>
+        <div class="algorithm-cards">
+            <a href="{{ url_for('mergesort') }}" class="algorithm-card">
                 <h3>Merge Sort</h3>
-                <p>Visualize how merge sort efficiently organizes pizza orders.</p>
-                <div class="algorithm-actions">
-                    <a href="{{ url_for('mergesort') }}" class="btn primary-btn">Start Learning</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="progress-section">
-        <h2>Your Learning Progress</h2>
-        <div class="progress-cards">
-            <div class="progress-card">
+                <p>Visualize the divide and conquer sorting algorithm</p>
+            </a>
+            <a href="{{ url_for('dijkstra') }}" class="algorithm-card">
                 <h3>Dijkstra's Algorithm</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="dijkstra-progress" style="width: 0%"></div>
-                </div>
-                <p class="progress-text">0% Complete</p>
-            </div>
-            
-            <div class="progress-card">
-                <h3>Merge Sort</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="mergesort-progress" style="width: 0%"></div>
-                </div>
-                <p class="progress-text">0% Complete</p>
-            </div>
+                <p>Find shortest paths between nodes in a graph</p>
+            </a>
+            <a href="{{ url_for('index') }}" class="algorithm-card">
+                <h3>More Algorithms Coming Soon</h3>
+                <p>Check back for new algorithm visualizations</p>
+            </a>
         </div>
     </div>
 </div>
@@ -60,31 +29,6 @@
 
 {% block extra_js %}
 <script>
-    // Fetch user progress for each algorithm
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fetch Dijkstra progress
-        fetch('/get_progress/dijkstra')
-            .then(response => response.json())
-            .then(data => {
-                if (data.progress) {
-                    const progressPercent = data.progress.percent || 0;
-                    document.getElementById('dijkstra-progress').style.width = `${progressPercent}%`;
-                    document.querySelector('.progress-card:nth-child(1) .progress-text').textContent = 
-                        `${progressPercent}% Complete`;
-                }
-            });
-        
-        // Fetch Merge Sort progress
-        fetch('/get_progress/mergesort')
-            .then(response => response.json())
-            .then(data => {
-                if (data.progress) {
-                    const progressPercent = data.progress.percent || 0;
-                    document.getElementById('mergesort-progress').style.width = `${progressPercent}%`;
-                    document.querySelector('.progress-card:nth-child(2) .progress-text').textContent = 
-                        `${progressPercent}% Complete`;
-                }
-            });
-    });
+    // ... your existing JavaScript code ...
 </script>
 {% endblock %}

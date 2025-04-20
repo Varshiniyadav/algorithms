@@ -1,4 +1,5 @@
 // Dijkstra's Algorithm Implementation for AlgoVerse
+import { getProgress, sleep } from './main.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Grid dimensions

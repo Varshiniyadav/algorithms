@@ -4,6 +4,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/algorithms.css') }}">
+
 {% endblock %}
 
 {% block content %}
@@ -67,7 +68,9 @@
             </div>
             
             <div class="array-container">
-                <div id="array-visual" class="array-visual"></div>
+                <div id="array-container" class="array-visual"></div>
+                <div id="steps-counter"></div>
+                <div id="time-display"></div>
             </div>
             
             <div class="status-panel">
@@ -103,10 +106,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{{ url_for('static', filename='js/mergesort.js') }}"></script>
-{% endblock %}
-{% endblock %}
-
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/mergesort.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/mergesort.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}
